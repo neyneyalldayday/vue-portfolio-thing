@@ -29,9 +29,26 @@ export default {
   },
   mounted() {
     this.fetchChannelData();
+    this.fetchPlaylistData();
     this.fetchVideoDetails();
   },
   methods: {
+    fetchChannelData(){
+        const apiKey = "AIzaSyCEt2LxHTzV7M9JEVkZZfiFnpWfNvBHXRI";
+        const channelId = 'UCaHYzfP3a-uNic29DerEiLw'
+        const channelUrl = `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${apiKey}`
+
+
+        fetch(channelUrl)
+            .then(res => res.json())
+            .then(data => {
+                
+                const channelDetails = data.items[0].snippet
+                console.log(channelDetails, "get the title")
+                this.channelTitle = channelDetails.title
+            })
+    },
+
     fetchVideoDetails() {
       const apiKey = "AIzaSyCEt2LxHTzV7M9JEVkZZfiFnpWfNvBHXRI";
       const videoUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${this.videoId}&key=${apiKey}`;
@@ -66,7 +83,7 @@ export default {
       return `<iframe width="560"  height="315" src="${embedSrc}" frameborder="0" allowfullscreen></iframe>`;
     },
 
-    fetchChannelData() {
+    fetchPlaylistData() {
       const apiKey = "AIzaSyCEt2LxHTzV7M9JEVkZZfiFnpWfNvBHXRI";
       const playlistUrl =
         "https://www.youtube.com/watch?v=0iMpaerb-9c&list=PLrN49NSQJLP8L-p9IZe6wbVg3tNAFr-v9";

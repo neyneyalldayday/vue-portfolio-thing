@@ -1,6 +1,6 @@
 <template>
     <div class="hero-container">
-        <div>NEYNEYALLDAYDAY</div>
+        
         <div class="image-wrapper">
         <img :src="heroImage"/>
         </div>
@@ -34,7 +34,7 @@ import HeroImage from '@/images/hero-image.jpg'
     background-color: #fdf0d5;
 }
 .image-wrapper {
-    width: 50rem;
+    width: 30rem;
 }
 .image-wrapper img{
     width: 100%;
