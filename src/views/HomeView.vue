@@ -4,15 +4,21 @@
         <div class="image-wrapper">
         <img :src="heroImage"/>
         </div>
+        <YouTubeChannel/>
 </div>
 </template>
 
 <script>
+import YouTubeChannel from '@/components/YouTubeChannel.vue';
 import HeroImage from '@/images/hero-image.jpg'
     export default {
+        components: {
+            YouTubeChannel,
+        },
         data() {
             return {
                 heroImage: HeroImage,
+                
             }
         }
     }
